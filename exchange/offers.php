@@ -2,7 +2,6 @@
 if (!defined('ABSPATH')) exit;
 
 if (!defined('WC1C_PRICE_TYPE')) define('WC1C_PRICE_TYPE', null);
-if (!defined('WC1C_PRESERVE_PRODUCT_VARIATIONS')) define('WC1C_PRESERVE_PRODUCT_VARIATIONS', false);
 
 function wc1c_offers_start_element_handler($is_full, $names, $depth, $name, $attrs) {
   global $wc1c_price_types, $wc1c_offer, $wc1c_price;
@@ -37,7 +36,7 @@ function wc1c_offers_character_data_handler($is_full, $names, $depth, $name, $da
 }
 
 function wc1c_offers_end_element_handler($is_full, $names, $depth, $name) {
-  global $wpdb, $wc1c_price_types, $wc1c_price_type, $wc1c_price_type, $wc1c_offer, $wc1c_suboffers, $wc1c_price;
+  global $wpdb, $wc1c_price_types, $wc1c_price_type, $wc1c_offer, $wc1c_price;
 
   if (@$names[$depth - 1] == 'ПакетПредложений' && $name == 'ТипыЦен') {
     if (!WC1C_PRICE_TYPE) {
