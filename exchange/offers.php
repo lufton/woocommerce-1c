@@ -12,6 +12,9 @@ function wc1c_offers_start_element_handler($is_full, $names, $depth, $name, $att
   elseif (@$names[$depth - 1] == 'ТипыЦен' && $name == 'ТипЦены') {
     $wc1c_price_types[] = array();
   }
+  elseif (@$names[$depth - 1] == 'Предложения' && $name == 'Предложение') {
+    $wc1c_offer = array();
+  }
   elseif (@$names[$depth - 1] == 'Предложение' && $name == 'Склад') {
     @$wc1c_offer['КоличествоНаСкладе'] += $attrs['КоличествоНаСкладе'];
   }
