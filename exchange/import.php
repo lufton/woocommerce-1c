@@ -16,7 +16,6 @@ function wc1c_import_start_element_handler($is_full, $names, $depth, $name, $att
 
 function wc1c_import_character_data_handler($is_full, $names, $depth, $name, $data) {
   global $wc1c_product;
-  //echo "$name\r\n";
 
   if (@$names[$depth - 2] == 'Товары' && @$names[$depth - 1] == 'Товар' && in_array($name, array('Ид', 'Артикул'))) {
     @$wc1c_product[$name] .= $data;
