@@ -70,8 +70,8 @@ function wc1c_offers_end_element_handler($is_full, $names, $depth, $name) {
         $coefficient = isset($wc1c_offer['Цена']['Коэффициент']) ? wc1c_parse_decimal($wc1c_offer['Цена']['Коэффициент']) : null;
         if (!is_null($coefficient)) $price *= $coefficient;
 	  }
-	  $product->set_price($price);
-	  $product->wc_update_product_stock($product, $quantity);
+	  $product->set_regular_price($price);
+	  wc_update_product_stock($product, $quantity);
       unset($product, $quantity, $price, $coefficient);
     }
 	unset($guid);
